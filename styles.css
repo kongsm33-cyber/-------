@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;600;700&display=swap');
+
+:root { color-scheme: dark; font-family: 'Noto Sans KR', sans-serif; background: #101825; color: #f6ebd7; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; overflow: hidden; background: radial-gradient(circle at 50% 10%, #3a3d55, #0b111b 70%); }
+#game-shell { height: 100vh; max-width: 1440px; margin: auto; display: grid; grid-template-rows: 106px 1fr 225px; position: relative; }
+#hud { padding: 18px 4.5%; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(#17243aee, #17243a44); z-index: 3; }
+.unit { display: flex; align-items: center; gap: 12px; min-width: 245px; }
+.enemy { justify-content: flex-end; text-align: right; }
+.portrait { display: grid; place-items: center; width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg,#d57a45,#6f2c30); font: 28px 'Black Han Sans'; border: 2px solid #facb74; box-shadow: 0 0 18px #ed9d4c66; }
+.enemy-portrait { background: linear-gradient(135deg,#717c89,#202733); border-color:#b4d2cf; }
+.bar { height: 10px; width: 170px; background: #391d29; border: 1px solid #c99a7b; overflow: hidden; margin: 4px 0; }
+.bar i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg,#dc4d55,#fa8a5a); transition: width .35s ease; }
+small { color: #c9d1dc; }
+#message { text-align: center; color: #f4d891; font-weight: 700; min-height: 24px; }
+#battle { position: relative; overflow: hidden; }
+#phaser-stage { width: 100%; height: 100%; }
+canvas { display: block; }
+#hand-area { position: relative; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10px; background: linear-gradient(transparent,#080d16 40%); z-index: 4; }
+#hand { height: 190px; width: min(850px, calc(100% - 190px)); position: relative; perspective: 1000px; }
+.card { position: absolute; bottom: 0; width: 128px; height: 181px; padding: 12px 11px; border: 3px solid #e1b875; border-radius: 12px 12px 17px 17px; color: #261b1c; background: linear-gradient(145deg,#f6e8c2,#b88d64); box-shadow: 0 8px 12px #0008; cursor: grab; user-select: none; transform-origin: 50% 115%; transition: transform .19s cubic-bezier(.2,.8,.2,1), filter .19s, box-shadow .19s; touch-action: none; }
+.card.attack { background: linear-gradient(145deg,#f3c09a,#b64e42); }.card.skill { background: linear-gradient(145deg,#b9e0dc,#4d8788); }.card.power { background: linear-gradient(145deg,#d7b7ed,#74518c); }
+.card:hover, .card.dragging { transform: translateY(-45px) scale(1.11) rotate(0deg) !important; z-index: 30 !important; filter: brightness(1.12); box-shadow: 0 18px 25px #000b; }
+.card.dragging { cursor: grabbing; pointer-events: none; }
+.card.unaffordable { filter: grayscale(.65) brightness(.7); }
+.cost { position:absolute; left:8px; top:7px; display:grid; place-items:center; width:28px; height:28px; border-radius:50%; background:#147cb0; color:white; border:2px solid #d6efff; font-weight:700; }.name { margin: 30px 0 5px; text-align:center; font-weight:700; font-size:15px; }.type { display:block; text-align:center; font-size:10px; color:#4f2f2a; }.description { font-size:12px; line-height:1.5; margin-top:18px; }.rarity { position:absolute; bottom:9px; left:0; width:100%; text-align:center; font-size:10px; color:#5c3c2c; }
+#piles { position: absolute; left: 26px; bottom: 30px; color:#d7c6a5; font-size: 12px; line-height: 1.8; }.pile { display:block; }
+#end-turn { position:absolute; right:25px; bottom:46px; width:120px; height:58px; border:2px solid #efd18a; border-radius: 8px; color:#211b16; background:linear-gradient(#ffe4a2,#c48537); font: 18px 'Black Han Sans'; cursor:pointer; box-shadow:0 5px 0 #70401e; transition: transform .15s, filter .15s; }.end-turn:hover { transform:translateY(-3px); filter:brightness(1.1); }.end-turn:disabled { filter:grayscale(1); cursor:wait; }
+#choice { position:absolute; inset:0; z-index:10; padding-top:15vh; text-align:center; background:#07101ada; } #choice-cards { display:flex; justify-content:center; gap:20px; }.choice-card { position:relative; display:inline-block; text-align:left; }.choice-card.card { position:relative; bottom:auto; }
+@media (max-width: 680px) { #game-shell { grid-template-rows: 88px 1fr 210px; } #hud { padding:10px; }.unit { min-width:unset; gap:6px; }.portrait { width:42px;height:42px;font-size:21px; }.bar { width:90px; } #message { display:none; } #hand { width:100%; } .card { width:106px; height:165px; padding:8px; }.description { font-size:10px; } #piles { left:8px;bottom:6px; } #end-turn { right:8px;bottom:12px;width:100px;height:47px;font-size:15px; } }
