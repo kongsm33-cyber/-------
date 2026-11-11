@@ -16,7 +16,7 @@ small { color: #c9d1dc; }
 #battle { position: relative; overflow: hidden; }
 #phaser-stage { width: 100%; height: 100%; }
 canvas { display: block; }
-#hand-area { position: relative; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10px; background: linear-gradient(transparent,#080d16 40%); z-index: 4; }
+#hand-area { position: relative; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10px; background: linear-gradient(transparent,#080d16 40%); border-top: 1px solid #80704f66; z-index: 4; }
 #hand { height: 190px; width: min(850px, calc(100% - 190px)); position: relative; perspective: 1000px; }
 .card { position: absolute; bottom: 0; width: 128px; height: 181px; padding: 12px 11px; border: 3px solid #e1b875; border-radius: 12px 12px 17px 17px; color: #261b1c; background: linear-gradient(145deg,#f6e8c2,#b88d64); box-shadow: 0 8px 12px #0008; cursor: grab; user-select: none; transform-origin: 50% 115%; transition: transform .19s cubic-bezier(.2,.8,.2,1), filter .19s, box-shadow .19s; touch-action: none; }
 .card.attack { background: linear-gradient(145deg,#f3c09a,#b64e42); }.card.skill { background: linear-gradient(145deg,#b9e0dc,#4d8788); }.card.power { background: linear-gradient(145deg,#d7b7ed,#74518c); }
